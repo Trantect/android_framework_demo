@@ -1,5 +1,5 @@
-WorkPhone
-====================================
+android_framework_demo
+======================
 
 Build
 -------------
@@ -17,5 +17,4 @@ Dependencies
 We use some third
  libraries:
 
-android_framework_demo
-======================
+

@@ -1,0 +1,37 @@
+# android studio / intellij ide
+.gradle
+/local.properties
+.DS_Store
+/build
+*.iml
+.idea/
+
+# android project
+bin/
+gen/
+apt_gen/
+out/
+
+.apt_generated/
+
+# eclipse
+.classpath
+.project
+project.properties
+.settings/
+local.properties
+
+# tmp files
+*~
+.tags*
+*.o
+
+# BuildScripts
+BuildScripts
+
+# calabash testing
+calabash/*.apk
+WorkPhone/calabash/test_servers/
+WorkPhone/calabash/*.png
+WorkPhone/calabash/*.apk
+build/

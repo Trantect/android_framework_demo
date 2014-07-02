@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">android_framework_demo</string>
+    <string name="app_title">Welcome To Trantect</string>
+    <string name="hello">Hello</string>
+</resources>

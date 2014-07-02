@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:screenOrientation="portrait" >
+
+    <Button
+        android:id="@+id/bt_welcome"
+        android:layout_width="@dimen/test_with"
+        android:layout_height="@dimen/test_height"
+        android:gravity="center"
+        android:text="@string/hello"
+        android:visibility="visible"
+        android:textAppearance="@style/TestTheme"/>
+
+    <TextView
+        android:id="@+id/tv_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_gravity="center"
+        android:text="@string/app_title"
+        android:textAppearance="@style/TestTheme"
+        />
+
+</LinearLayout>

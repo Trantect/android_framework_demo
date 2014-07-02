@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 WorkPhone
 ====================================
 
@@ -15,11 +14,8 @@ We use gradle to build project:
 
 Dependencies
 -------------
-We use some third libraries:
+We use some third
+ libraries:
 
-=======
 android_framework_demo
 ======================
-
-A live demo of Android project with various tools
->>>>>>> 8ca5f81881530d00e1c0fc1b8611ea3679e7c59b

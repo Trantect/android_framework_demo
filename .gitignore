@@ -44,7 +44,7 @@ local.properties
 proguard/
 
 # UI testing (direcotry name could be changed)
-!app/uiTests/features
+!app/uiTests/features/
 app/uiTests/test_servers/
 app/uiTests/*.png
 app/uiTests/*.apk

@@ -1,5 +1,13 @@
 require 'calabash-android/calabash_steps'
 
+When (/^I enter username "([^\"]*)" and password "([^\"]*)" on login page$/) do |username,password|
+  steps %{
+      Then I enter "#{username}" into input field number 1
+      Then I enter "#{password}" into input field number 2
+      Then I wait for 2 seconds
+  }
+end
+
 Then /^I clear app data$/ do
 	clear_app_data
 end

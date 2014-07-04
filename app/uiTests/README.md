@@ -34,7 +34,7 @@ To run with certian tag:
 
 ###[Calabash Android comes with predefined steps.](https://github.com/calabash/calabash-android/tree/master/ruby-gem/lib/calabash-android/canned_steps.md)
 ###[Ruby API](https://github.com/calabash/calabash-android/blob/master/documentation/ruby_api.md)
-
+###User-defined:[./features/step_definitions/utilities.rb](./features/step_definitions/utilities.rb)(You can modify this file)
 
 
 --------------------------------------------------------------------------

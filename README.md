@@ -63,6 +63,20 @@ We use gradle to build project:
 - run command<code>./gradlew assembleRelease</code> to assemble release build
 - Then you can see apk files in folder <code>./build/outputs/apk/</code>
 
+Tests
+-----------------------------------
+### Unit Tests
+
+### Integration Tests
+
+### UI Tests
+
+Code Coverage
+-----------------------------------
+Since gradle 10.0.+, the code coverage feature of Jacoco is integrated with gradle build tool. Please refer to build.gradle file for config details.
+- run command <code>./gradlew clean connectedCheck</code> to run Android tests and code coverage.
+- The reports locate in <code>app/build/outputs/reports</code>
+
 Dependencies
 -----------------------------------
 We use some third-party libraries:

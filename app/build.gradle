@@ -1,4 +1,7 @@
 apply plugin: 'android'
+apply plugin: 'android-apt'
+
+project.archivesBaseName = "AndroidDemo"
 
 android {
     compileSdkVersion 19
@@ -25,6 +28,99 @@ android {
     }
 }
 
+
+apt {
+    arguments {
+        androidManifestFile variant.processResources.manifestFile
+        resourcePackageName android.defaultConfig.applicationId
+
+        // If you're using Android NBS flavors you should use the following line instead of hard-coded packageName
+        // resourcePackageName android.defaultConfig.packageName
+
+        // You can set optional annotation processing options here, like these commented options:
+        // logLevel 'INFO'
+        // logFile '/var/log/aa.log'
+    }
+}
+
+ext.androidAnnotationsVersion = '3.0.1'
+ext.androidAsyncHttpVersion = '1.4.5'
+
 dependencies {
+//    apt "org.androidannotations:androidannotations:${androidAnnotationsVersion}"
+
+//    compile "org.androidannotations:androidannotations-api:${androidAnnotationsVersion}"
+//    compile "com.loopj.android:android-async-http:${androidAsyncHttpVersion}"
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+//    for test
+//    androidTestCompile 'junit:junit:4.10'
+//    androidTestCompile 'org.robolectric:robolectric:2.3+'
+//    androidTestCompile 'com.squareup:fest-android:1.0.+'
+}
+
+
+/*
+ * Gets the version name from the latest Git tag
+ */
+def getVersionName = { ->
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'git', 'describe', '--tags', '--long', '--match', "v*"
+        standardOutput = stdout
+    }
+    return stdout.toString().trim()
+}
+
+def getBuildNumber = { ->
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'git', 'rev-list', 'HEAD', '--count'
+        standardOutput = stdout
+    }
+    return Integer.parseInt(stdout.toString().trim())
+}
+
+def getAndroidNdk = {
+    def ANDROID_NDK = System.getenv("ANDROID_NDK_HOME")
+
+    if (ANDROID_NDK == null) {
+        throw new RuntimeException("ANDROID_NDK_HOME is not set")
+    }
+    ANDROID_NDK
+}
+
+
+android.applicationVariants.all { variant ->
+    def ndk_args = ["NDK_OUT=build/ndk/${variant.dirName}/obj", "NDK_LIBS_OUT=build/ndk/${variant.dirName}/lib"]
+
+    task("ndkBuild${variant.name.capitalize()}",
+            type: Exec,
+            description: 'build the ndk jni code') {
+        commandLine = [getAndroidNdk() + '/ndk-build', 'all'] + ndk_args
+    }
+
+    task("nativeLibsToJar${variant.name.capitalize()}",
+            type: Zip,
+            description: 'create a jar archive of the native libs',
+            dependsOn: "ndkBuild${variant.name.capitalize()}") {
+        destinationDir file("$project.buildDir/bundles/${variant.dirName}/libs")
+        baseName 'workphone_native_lib'
+        extension 'jar'
+        from fileTree(dir: "build/ndk/${variant.dirName}/lib", include: "**/*.so")
+        into 'lib'
+    }
+
+// For some NDK tasks
+//    task("Kcopy${variant.name.capitalize()}",
+//            type: Copy,
+//            dependsOn: "nativeLibsToJar${variant.name.capitalize()}") {
+//        from "$project.buildDir/bundles/${variant.dirName}/libs/xxx_native_lib.jar"
+//        into "libs/"
+//    }
+
+//    variant.javaCompile.dependsOn "Kcopy${variant.name.capitalize()}"
+
+    def file = variant.outputFile
+    variant.outputFile = new File(file.parent, file.name.replace(".apk", "-" + android.defaultConfig.versionName + ".apk"))
 }

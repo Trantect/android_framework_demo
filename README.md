@@ -21,8 +21,6 @@ http://developer.android.com/training/articles/memory.html#DependencyInjection
 ### Network
 - [Asynchronous Http Client for Android (android-async-http)](https://github.com/loopj/android-async-http)
 
-
-
 ## Build
 We use gradle to build project:
 
@@ -31,9 +29,8 @@ We use gradle to build project:
 - run <code>./gradlew assemble</code> to assemble debug and release builds
 - run <code>./gradlew assembleDebug</code> to assemble debug build
 - run <code>./gradlew assembleRelease</code> to assemble release build
-- Then you will see apk files in folder <code>./build/outputs/apk/</code>
 
-
+Then you will see apk files in folder <code>./build/outputs/apk/</code>
 
 ## Tests
 ### Unit Tests (small-scope and low-level)
@@ -48,14 +45,10 @@ We use gradle to build project:
 - [Espresso](https://code.google.com/p/android-test-kit/)
 - [Calabash-android](https://github.com/calabash/calabash-android) (its underlying implementation uses Robotium)
 
-
-
 ## Code Coverage
 Since gradle 10.0.+, the code coverage feature of Jacoco is integrated with gradle build tool. Please refer to build.gradle file for config details.
 - run command <code>./gradlew clean connectedCheck</code> to run Android tests and code coverage.
 - The reports locate in <code>app/build/outputs/reports</code>
-
-
 
 ## Jenkins
 ### Configure Steps
@@ -72,11 +65,8 @@ Since gradle 10.0.+, the code coverage feature of Jacoco is integrated with grad
 
 		Figure： Output_screen.png
 
-### Warning
-- You can find all the pictures in the folder named JenkinsScreenShot
-
-
-
+### Jenkins
+Screenshots of Jenkins jobs for this project can be found in folder JenkinsScreenShot.
 
 ## Thanks to
 - [guoyunsky](https://github.com/guoyunsky) for his [演示Markdown的各种语法](https://github.com/guoyunsky/Markdown-Chinese-Demo)

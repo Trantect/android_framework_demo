@@ -47,9 +47,9 @@ ext.androidAnnotationsVersion = '3.0.1'
 ext.androidAsyncHttpVersion = '1.4.5'
 
 dependencies {
-//    apt "org.androidannotations:androidannotations:${androidAnnotationsVersion}"
+    apt "org.androidannotations:androidannotations:${androidAnnotationsVersion}"
 
-//    compile "org.androidannotations:androidannotations-api:${androidAnnotationsVersion}"
+    compile "org.androidannotations:androidannotations-api:${androidAnnotationsVersion}"
 //    compile "com.loopj.android:android-async-http:${androidAsyncHttpVersion}"
     compile fileTree(dir: 'libs', include: ['*.jar'])
 

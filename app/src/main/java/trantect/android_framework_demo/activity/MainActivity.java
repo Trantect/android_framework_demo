@@ -6,8 +6,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 import trantect.android_framework_demo.R;
 
@@ -20,15 +23,19 @@ public class MainActivity extends Activity {
 
     // use the way to init views
     @ViewById(R.id.bt_welcome)
-    private Button bt_welcome;
+    protected Button bt_welcome;
 
     @ViewById(R.id.tv_welcome)
-    private TextView tv_welcome;
+    protected TextView tv_welcome;
 
     @Override
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
         Log.d("MainActivity", "onCreate");
+    }
+
+    @AfterViews
+    protected void initView(){
         showBtView();
     }
 
@@ -47,17 +54,19 @@ public class MainActivity extends Activity {
     // use the way to replace the event of TextView click
     @Click(R.id.tv_welcome)
     protected void onClickTextView(){
-        showTvView();
+        showBtView();
     }
 
     // show Button
-    private void showBtView(){
+    @UiThread
+    protected void showBtView(){
         bt_welcome.setVisibility(View.VISIBLE);
         tv_welcome.setVisibility(View.GONE);
     }
 
     // show TextView
-    private void showTvView(){
+    @UiThread
+    protected void showTvView(){
         tv_welcome.setVisibility(View.VISIBLE);
         bt_welcome.setVisibility(View.GONE);
     }

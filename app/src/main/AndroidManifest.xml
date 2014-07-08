@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_launcher"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.MainActivity_"
             android:label="@string/app_name"
             android:icon="@drawable/ic_launcher"
             android:excludeFromRecents="true"

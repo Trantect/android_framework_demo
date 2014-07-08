@@ -8,9 +8,9 @@ We use some third-party libraries:
 - [AndroidAnnotation](https://github.com/excilys/androidannotations)
 
 Note:<br />
-1. Do NOT ignore the pattern<br />
-1. Do NOT make every class use the pattern<br />
-1. Do NOT store dependencies as static fields<br />
+* Do NOT ignore the pattern<br />
+* Do NOT make every class use the pattern<br />
+* Do NOT store dependencies as static fields<br />
 
 		Avoid dependency injection frameworks
 

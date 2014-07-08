@@ -61,6 +61,28 @@ Since gradle 10.0.+, the code coverage feature of Jacoco is integrated with grad
 
 
 
-五、Thanks to
+五、Jenkins
+-----------------------------------
+### （1）Configure Steps
+- Create a new item, named "android_fragement_demo":
+
+		Figure： CreatItem.png
+		
+- Enter android_fragment_demo project, then click "Configure"
+- Modify the configure page according to the pictures:
+
+		Figure: Project_and_Source.png -> Build_Triggers.png -> Build_Environment.png -> Build.png -> Post-buildActions.png
+
+### （2）Output
+
+		Figure： Output_screen.png
+
+### （3）Warning
+- You can find all the pictures in the folder named JenkinsScreenShot
+
+
+
+
+六、Thanks to
 -----------------------------------
 - [guoyunsky](https://github.com/guoyunsky) for his [演示Markdown的各种语法](https://github.com/guoyunsky/Markdown-Chinese-Demo)

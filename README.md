@@ -1,17 +1,16 @@
-android_framework_demo
+# android_framework_demo
 ===================================
 
-一、Dependencies
------------------------------------
+## Dependencies
 We use some third-party libraries:
-(Please refer to [this](https://github.com/Trinea/android-open-project))
-### （1）Dependency injection framework
+([reference](https://github.com/Trinea/android-open-project))
+### Dependency injection framework
 - [AndroidAnnotation](https://github.com/excilys/androidannotations)
 
 Note:<br />
 1. Do NOT ignore the pattern<br />
-2. Do NOT make every class use the pattern<br />
-3. Do NOT store dependencies as static fields<br />
+1. Do NOT make every class use the pattern<br />
+1. Do NOT store dependencies as static fields<br />
 
 		Avoid dependency injection frameworks
 
@@ -19,32 +18,30 @@ Note:<br />
 
 http://developer.android.com/training/articles/memory.html#DependencyInjection
 
-### （2）Network
+### Network
 - [Asynchronous Http Client for Android (android-async-http)](https://github.com/loopj/android-async-http)
 
 
 
-二、Build
------------------------------------
+## Build
 We use gradle to build project:
 
 - use terminal and change current directory to project root directory
-- run command<code>./gradlew clean</code> to clean project
-- run command<code>./gradlew assemble</code> to assemble debug and release builds
-- run command<code>./gradlew assembleDebug</code> to assemble debug build
-- run command<code>./gradlew assembleRelease</code> to assemble release build
-- Then you can see apk files in folder <code>./build/outputs/apk/</code>
+- run <code>./gradlew clean</code> to clean project
+- run <code>./gradlew assemble</code> to assemble debug and release builds
+- run <code>./gradlew assembleDebug</code> to assemble debug build
+- run <code>./gradlew assembleRelease</code> to assemble release build
+- Then you will see apk files in folder <code>./build/outputs/apk/</code>
 
 
 
-三、Tests
------------------------------------
-### （1）Unit Tests (small-scope and low-level)
+## Tests
+### Unit Tests (small-scope and low-level)
 - [Android API](https://developer.android.com/tools/testing/index.html)
 - [Robolectric](https://github.com/robolectric/robolectric)
 - [FEST-android](https://github.com/square/fest-android)
 
-### （2）Integration and UI Tests (large-scope and interacted)
+### Integration and UI Tests (large-scope and interacted)
 - [Android Instrumentation API](http://developer.android.com/tools/testing/index.html)
 - [Robotium](https://code.google.com/p/robotium/) and [code](https://github.com/RobotiumTech/robotium)
 - [UI Automator](http://developer.android.com/tools/help/uiautomator/index.html) and [how-to](http://developer.android.com/tools/testing/testing_ui.html)
@@ -53,17 +50,15 @@ We use gradle to build project:
 
 
 
-四、Code Coverage
------------------------------------
+## Code Coverage
 Since gradle 10.0.+, the code coverage feature of Jacoco is integrated with gradle build tool. Please refer to build.gradle file for config details.
 - run command <code>./gradlew clean connectedCheck</code> to run Android tests and code coverage.
 - The reports locate in <code>app/build/outputs/reports</code>
 
 
 
-五、Jenkins
------------------------------------
-### （1）Configure Steps
+## Jenkins
+### Configure Steps
 - Create a new item, named "android_fragement_demo":
 
 		Figure： CreatItem.png
@@ -73,16 +68,15 @@ Since gradle 10.0.+, the code coverage feature of Jacoco is integrated with grad
 
 		Figure: Project_and_Source.png -> Build_Triggers.png -> Build_Environment.png -> Build.png -> Post-buildActions.png
 
-### （2）Output
+### Output
 
 		Figure： Output_screen.png
 
-### （3）Warning
+### Warning
 - You can find all the pictures in the folder named JenkinsScreenShot
 
 
 
 
-六、Thanks to
------------------------------------
+## Thanks to
 - [guoyunsky](https://github.com/guoyunsky) for his [演示Markdown的各种语法](https://github.com/guoyunsky/Markdown-Chinese-Demo)
